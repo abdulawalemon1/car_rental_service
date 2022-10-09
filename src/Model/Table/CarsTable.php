@@ -12,7 +12,8 @@ use Cake\Validation\Validator;
  * Cars Model
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- * @property \App\Model\Table\CarDriversTable&\Cake\ORM\Association\HasMany $CarDrivers
+ * @property \App\Model\Table\DriversTable&\Cake\ORM\Association\BelongsTo $Drivers
+ * @property \App\Model\Table\CardriversTable&\Cake\ORM\Association\HasMany $Cardrivers
  *
  * @method \App\Model\Entity\Car newEmptyEntity()
  * @method \App\Model\Entity\Car newEntity(array $data, array $options = [])
@@ -52,7 +53,10 @@ class CarsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('CarDrivers', [
+        $this->belongsTo('Drivers', [
+            'foreignKey' => 'driver_id',
+        ]);
+        $this->hasMany('Cardrivers', [
             'foreignKey' => 'car_id',
         ]);
     }
@@ -87,6 +91,10 @@ class CarsTable extends Table
             ->integer('user_id')
             ->notEmptyString('user_id');
 
+        $validator
+            ->integer('driver_id')
+            ->allowEmptyString('driver_id');
+
         return $validator;
     }
 
@@ -100,6 +108,7 @@ class CarsTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
+        $rules->add($rules->existsIn('driver_id', 'Drivers'), ['errorField' => 'driver_id']);
 
         return $rules;
     }

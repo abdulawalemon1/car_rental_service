@@ -35,6 +35,10 @@
                     <td><?= $car->has('user') ? $this->Html->link($car->user->name, ['controller' => 'Users', 'action' => 'view', $car->user->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Driver') ?></th>
+                    <td><?= $car->has('driver') ? $this->Html->link($car->driver->id, ['controller' => 'Drivers', 'action' => 'view', $car->driver->id]) : '' ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($car->id) ?></td>
                 </tr>
@@ -48,8 +52,8 @@
                 </tr>
             </table>
             <div class="related">
-                <h4><?= __('Related Car Drivers') ?></h4>
-                <?php if (!empty($car->car_drivers)) : ?>
+                <h4><?= __('Related Cardrivers') ?></h4>
+                <?php if (!empty($car->cardrivers)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
@@ -58,19 +62,21 @@
                             <th><?= __('Driver Id') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
+                            <th><?= __('Status') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
-                        <?php foreach ($car->car_drivers as $carDrivers) : ?>
+                        <?php foreach ($car->cardrivers as $cardrivers) : ?>
                         <tr>
-                            <td><?= h($carDrivers->id) ?></td>
-                            <td><?= h($carDrivers->car_id) ?></td>
-                            <td><?= h($carDrivers->driver_id) ?></td>
-                            <td><?= h($carDrivers->created) ?></td>
-                            <td><?= h($carDrivers->modified) ?></td>
+                            <td><?= h($cardrivers->id) ?></td>
+                            <td><?= h($cardrivers->car_id) ?></td>
+                            <td><?= h($cardrivers->driver_id) ?></td>
+                            <td><?= h($cardrivers->created) ?></td>
+                            <td><?= h($cardrivers->modified) ?></td>
+                            <td><?= h($cardrivers->status) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'CarDrivers', 'action' => 'view', $carDrivers->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'CarDrivers', 'action' => 'edit', $carDrivers->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'CarDrivers', 'action' => 'delete', $carDrivers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $carDrivers->id)]) ?>
+                                <?= $this->Html->link(__('View'), ['controller' => 'Cardrivers', 'action' => 'view', $cardrivers->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['controller' => 'Cardrivers', 'action' => 'edit', $cardrivers->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Cardrivers', 'action' => 'delete', $cardrivers->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cardrivers->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

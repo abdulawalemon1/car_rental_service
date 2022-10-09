@@ -13,11 +13,13 @@ use Cake\ORM\Entity;
  * @property string $car_num_plate
  * @property string $car_model
  * @property int $user_id
+ * @property int|null $driver_id
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
  * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\CarDriver[] $car_drivers
+ * @property \App\Model\Entity\Driver $driver
+ * @property \App\Model\Entity\Cardriver[] $cardrivers
  */
 class Car extends Entity
 {
@@ -35,9 +37,11 @@ class Car extends Entity
         'car_num_plate' => true,
         'car_model' => true,
         'user_id' => true,
+        'driver_id' => true,
         'created' => true,
         'modified' => true,
         'user' => true,
-        'car_drivers' => true,
+        'driver' => true,
+        'cardrivers' => true,
     ];
 }

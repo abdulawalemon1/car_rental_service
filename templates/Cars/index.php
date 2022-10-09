@@ -16,6 +16,8 @@
                     <th><?= $this->Paginator->sort('car_num_plate') ?></th>
                     <th><?= $this->Paginator->sort('car_model') ?></th>
                     <th><?= $this->Paginator->sort('user_id') ?></th>
+                    <th><?= $this->Paginator->sort('driver_id') ?></th>
+                    <th><?= $this->Paginator->sort('status') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -29,6 +31,8 @@
                     <td><?= h($car->car_num_plate) ?></td>
                     <td><?= h($car->car_model) ?></td>
                     <td><?= $car->has('user') ? $this->Html->link($car->user->name, ['controller' => 'Users', 'action' => 'view', $car->user->id]) : '' ?></td>
+                    <td><?= $car->has('driver') ? $this->Html->link($car->driver->driver_name, ['controller' => 'Drivers', 'action' => 'view', $car->driver->id]) : '' ?></td>
+                    <td><?= $car->has('driver') ? 'Assigned': 'Unassigned' ?></td>
                     <td><?= h($car->created) ?></td>
                     <td><?= h($car->modified) ?></td>
                     <td class="actions">

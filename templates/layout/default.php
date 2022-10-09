@@ -49,7 +49,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?= $this->Html->link(__('Companys'), ['controller'=>'Users','action' => 'index'], ['class' => '']) ?>
             <?= $this->Html->link(__('Drivers'), ['controller'=>'Drivers','action' => 'index'], ['class' => '']) ?>
             <?= $this->Html->link(__('Cars'), ['controller'=>'Cars','action' => 'index'], ['class' => '']) ?>
-            <?= $this->Html->link(__('Assign Driver'), ['controller'=>'Cardrivers','action' => 'index'], ['class' => '']) ?>
+            <!-- <?= $this->Html->link(__('Assign Driver'), ['controller'=>'Cardrivers','action' => 'index'], ['class' => '']) ?> -->
                 
             <?php if($isLoggedIn):?>
             <?= $this->Html->Link('Logout', ['controller' => 'Users', 'action' => 'logout']) ?>

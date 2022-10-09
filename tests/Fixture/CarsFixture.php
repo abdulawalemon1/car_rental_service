@@ -24,8 +24,9 @@ class CarsFixture extends TestFixture
                 'car_num_plate' => 'Lorem ipsum dolor sit amet',
                 'car_model' => 'Lorem ipsum dolor sit amet',
                 'user_id' => 1,
-                'created' => '2022-10-07 21:19:28',
-                'modified' => '2022-10-07 21:19:28',
+                'driver_id' => 1,
+                'created' => '2022-10-09 18:08:03',
+                'modified' => '2022-10-09 18:08:03',
             ],
         ];
         parent::init();

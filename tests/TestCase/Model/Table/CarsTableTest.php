@@ -26,7 +26,8 @@ class CarsTableTest extends TestCase
     protected $fixtures = [
         'app.Cars',
         'app.Users',
-        'app.CarDrivers',
+        'app.Drivers',
+        'app.Cardrivers',
     ];
 
     /**

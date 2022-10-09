@@ -19,7 +19,7 @@ class CarsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users'],
+            'contain' => ['Users', 'Drivers'],
         ];
         $cars = $this->paginate($this->Cars);
 
@@ -36,7 +36,7 @@ class CarsController extends AppController
     public function view($id = null)
     {
         $car = $this->Cars->get($id, [
-            'contain' => ['Users', 'CarDrivers'],
+            'contain' => ['Users', 'Drivers', 'Cardrivers'],
         ]);
 
         $this->set(compact('car'));
@@ -60,8 +60,8 @@ class CarsController extends AppController
             $this->Flash->error(__('The car could not be saved. Please, try again.'));
         }
         $users = $this->Cars->Users->find('list', ['limit' => 200])->all();
-        
-        $this->set(compact('car', 'users'));
+        $drivers = $this->Cars->Drivers->find('list', ['keyField' => 'id', 'valueField' => 'driver_name']);
+        $this->set(compact('car', 'users', 'drivers'));
     }
 
     /**
@@ -86,7 +86,8 @@ class CarsController extends AppController
             $this->Flash->error(__('The car could not be saved. Please, try again.'));
         }
         $users = $this->Cars->Users->find('list', ['limit' => 200])->all();
-        $this->set(compact('car', 'users'));
+        $drivers = $this->Cars->Drivers->find('list', ['keyField' => 'id', 'valueField' => 'driver_name']);
+        $this->set(compact('car', 'users', 'drivers'));
     }
 
     /**

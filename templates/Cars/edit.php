@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Car $car
  * @var string[]|\Cake\Collection\CollectionInterface $users
+ * @var string[]|\Cake\Collection\CollectionInterface $drivers
  */
 ?>
 <div class="row">
@@ -27,6 +28,7 @@
                     echo $this->Form->control('car_num_plate');
                     echo $this->Form->control('car_model');
                     echo $this->Form->control('user_id', ['options' => $users]);
+                    echo $this->Form->control('driver_id', ['options' => $drivers, 'empty' => true]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
